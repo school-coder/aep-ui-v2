@@ -13,13 +13,17 @@
                 </li>
             </ul>
 
-            <ul class="navbar-nav">
-                <li class="nav-item">
+            <ul class="navbar-nav" >
+                <li class="nav-item" v-if="!isAuthenticated">
                     <router-link class="nav-link" to="/register" active-class="active">Register</router-link>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item" v-if="!isAuthenticated">
                     <router-link class="nav-link" to="/login" active-class="active">Login</router-link>
+                </li>
+
+                <li class="nav-item" v-if="isAuthenticated">
+                    <a class="nav-link" @click="logout" active-class="active">Log out</a>
                 </li>
             </ul>
         </div>
@@ -28,7 +32,16 @@
 
 <script>
 export default {
-
+  methods: {
+    logout () {
+      this.$store.dispatch('user/logout')
+    }
+  },
+  computed: {
+    isAuthenticated () {
+      return this.$store.getters['user/isAuthenticated']
+    }
+  }
 }
 </script>
 

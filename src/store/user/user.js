@@ -1,46 +1,45 @@
-const namespaced = true;
+const namespaced = true
 
 const state = {
-    idToken : null,
-    username : null,
-    role    : null
-};
+  idToken: null,
+  username: null,
+  role: null
+}
 
 const getters = {
-    isAuthenticated : state => {
-        return state.idToken !== null;
-    }
-};
+  isAuthenticated: state => {
+    return state.idToken !== null
+  }
+}
 
-const mutuations = {
-    login: (state, user) => {
-        state.idToken = user.idToken;
-        state.username = user.username;
-        state.role = user.role;
-    },
+const mutations = {
+  login: (state, user) => {
+    state.idToken = user.idToken
+    state.username = user.username
+    state.role = user.role
+  },
 
-    logout: (state, user) => {
-        state.idToken = null;
-        state.username = null;
-        state.role = null;
-    }
-};
+  logout: (state) => {
+    state.idToken = null
+    state.username = null
+    state.role = null
+  }
+}
 
 const actions = {
-    login: ({commit}, user) => {
-        commit('login', user);
-    },
+  login: ({ commit }, user) => {
+    commit('login', user)
+  },
 
-    logout: ({commit}, user) => {
-        commit('logout', user);
-    }
-};
-
+  logout: ({ commit }) => {
+    commit('logout')
+  }
+}
 
 export default {
-    namespaced,
-    getters,
-    mutuations,
-    actions,
-    state
+  namespaced,
+  getters,
+  mutations,
+  actions,
+  state
 }
