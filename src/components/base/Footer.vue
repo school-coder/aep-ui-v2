@@ -10,6 +10,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid #EEE;
+        padding: 10px;
+        font-size: 12px;
+    }
+
 
 </style>
