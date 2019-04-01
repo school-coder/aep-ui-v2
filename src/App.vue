@@ -1,7 +1,9 @@
 <template>
   <div id="app">
      <Header> </Header>
-     <router-view></router-view>
+     <div id="content">
+      <router-view></router-view>
+     </div>
      <Footer> </Footer>
   </div>
 </template>
@@ -23,5 +25,9 @@ export default {
   body {
     font-family: 'Roboto', sans-serif !important;
     color: #333;
+  }
+
+  #content {
+    padding-top: 20px;
   }
 </style>
