@@ -20,5 +20,8 @@ export default {
 </script>
 
 <style lang="scss">
-
+  body {
+    font-family: 'Roboto', sans-serif !important;
+    color: #333;
+  }
 </style>
