@@ -34,8 +34,9 @@ export default {
         margin: auto;
         border: 1px solid #CCC;
         padding: 20px;
-        position: relative;
-        top: 200px;
+        position: absolute;
+        top: calc(50% - 200px );
+        left: calc(50% - 250px );
     }
 
     #id-login-submit {

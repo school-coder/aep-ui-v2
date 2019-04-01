@@ -6,10 +6,20 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbar-supported-content">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <router-link class="nav-link" to="/hackathon" active-class="active">API Hackthon</router-link>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/register" active-class="active">Register</router-link>
+                </li>
+
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/login" active-class="active">Login</router-link>
                 </li>
             </ul>
         </div>

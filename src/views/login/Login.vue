@@ -5,7 +5,6 @@
             <div class="form-group">
                 <label for="id-lg-email">Email address</label>
                 <input type="email" class="form-control" id="id-lg-email" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
                 <label for="id-lg-password">Password</label>
@@ -33,8 +32,9 @@ export default {
         margin: auto;
         border: 1px solid #CCC;
         padding: 20px;
-        position: relative;
-        top: 200px;
+        position: absolute;
+        top: calc(50% - 200px );
+        left: calc(50% - 250px );
     }
 
     #id-login-submit {
