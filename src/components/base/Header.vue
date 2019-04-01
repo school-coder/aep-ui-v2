@@ -9,7 +9,7 @@
     <ul class="navbar-nav mr-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="#">API Hackathon</a>
+          <router-link class="nav-link" to="/hackathon">API Hackthon</router-link>
       </li>
       
     </ul>

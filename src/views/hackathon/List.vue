@@ -1,6 +1,5 @@
-
 <template>
-  
+    <div>inside hackathon list page</div>
 </template>
 
 <script>
