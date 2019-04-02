@@ -1,11 +1,9 @@
-import axios from '@/axios-app'
+import axiosInstance from '@/axios-app'
 
-const login = (callback) => {
-  axios.get('/').then( callback ).catch( error => {
-    console.log(error);
-  });
+function logIn (data, callBack) {
+  axiosInstance.post('auth/login', data).then(callBack).catch(error => {
+    console.log(error)
+  })
 }
 
-export default {
-    login
-}
+export default { logIn }
