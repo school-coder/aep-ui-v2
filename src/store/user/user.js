@@ -1,28 +1,30 @@
 const namespaced = true
 
 const state = {
-  idToken: null,
-  username: null,
-  role: null
+  user: {
+    firstName: null,
+    lastName: null,
+    login: null,
+    email: null,
+    id: null,
+    langKey: null,
+    authorities: []
+  }
 }
 
 const getters = {
   isAuthenticated: state => {
-    return state.idToken !== null
+    return state.user.id != null
   }
 }
 
 const mutations = {
   login: (state, user) => {
-    state.idToken = user.idToken
-    state.username = user.username
-    state.role = user.role
+    state.user = user
   },
 
   logout: (state) => {
-    state.idToken = null
-    state.username = null
-    state.role = null
+    state.user = {}
   }
 }
 

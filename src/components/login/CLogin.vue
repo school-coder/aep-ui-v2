@@ -41,14 +41,17 @@ export default {
       loginService.logIn(data, this.getCurrentUser)
     },
     getCurrentUser () {
-      accountService.getAccount()
+      accountService.getAccount(this.saveUserToStore)
+    },
+    navigateToHome: function () {
+      this.$router.push('/')
     },
     saveUserToStore (response) {
-      const userData = response.data;
-      this.$store.dispatch('user/login', {
-        username: userData.email,
-        userId: userData.id
-      })
+      const userData = response.data
+      console.log(userData)
+      this.$store.dispatch('user/login', userData).then(
+        this.navigateToHome()
+      )
     }
   }
 }

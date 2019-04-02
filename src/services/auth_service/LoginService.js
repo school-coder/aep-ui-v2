@@ -6,4 +6,11 @@ function logIn (data, callBack) {
   })
 }
 
-export default { logIn }
+async function logOut () {
+  await axiosInstance.post('auth/logout').then().catch(error => {
+    throw new Error(error)
+  })
+  return 'logout success'
+}
+
+export default { logIn, logOut }
