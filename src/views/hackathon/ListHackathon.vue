@@ -1,6 +1,13 @@
 <template>
     <section>
-        <title-bar :title="title"></title-bar>
+        <title-bar :title="title">
+            <template v-slot:actions>
+                <button class="btn btn-light"  @click="create">
+                    <font-awesome-icon icon="plus-circle"></font-awesome-icon>
+                    Create
+                </button>
+            </template>
+        </title-bar>
         <div class="container-fluid">
             <div class="card" style="width: 18rem">
                 <img src="images/hack1.png" class="card-img-top" alt="hack1.png" >
@@ -22,6 +29,11 @@ import TitleBar from '@/components/core/CTitleBar.vue'
 export default {
   components: {
     TitleBar
+  },
+  methods: {
+    create () {
+      this.$router.push('/hackathon/create')
+    }
   },
   data () {
     return {
