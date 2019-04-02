@@ -22,9 +22,14 @@
                     <router-link class="nav-link" to="/login" active-class="active">Login</router-link>
                 </li>
 
-                <li class="nav-item" v-if="isAuthenticated">
-                    <a class="nav-link" @click="logout" active-class="active">Log out</a>
-                </li>
+                <div class="dropdown" v-if="isAuthenticated">
+                  <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Account
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item"  href="#" @click.prevent="logout">Logout</a>
+                  </div>
+                </div>
             </ul>
         </div>
     </nav>
