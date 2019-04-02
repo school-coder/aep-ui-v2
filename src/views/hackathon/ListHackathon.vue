@@ -31,8 +31,8 @@ export default {
     TitleBar
   },
   methods: {
-    create() {
-      this.$router.push('/hackathon/create');
+    create () {
+      this.$router.push('/hackathon/create')
     }
   },
   data () {
