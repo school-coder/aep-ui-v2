@@ -7,6 +7,13 @@ const getAccount = (accountCallback) => {
   })
 }
 
+const createAccount = async (user) => {
+  await axiosInstance.post('api/register', user).catch(error => {
+    throw new Error(error)
+  })
+  return 'Account created'
+}
+
 export default {
-  getAccount
+  getAccount, createAccount
 }
