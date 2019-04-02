@@ -2,7 +2,7 @@
     <section>
         <title-bar :title="title">
             <template v-slot:actions>
-                <button class="btn btn-light">
+                <button class="btn btn-light"  @click="create">
                     <font-awesome-icon icon="plus-circle"></font-awesome-icon>
                     Create
                 </button>
@@ -29,6 +29,11 @@ import TitleBar from '@/components/core/CTitleBar.vue'
 export default {
   components: {
     TitleBar
+  },
+  methods: {
+    create() {
+      this.$router.push('/hackathon/create');
+    }
   },
   data () {
     return {
