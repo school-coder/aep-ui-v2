@@ -25,9 +25,16 @@ export default {
   body {
     font-family: 'Roboto', sans-serif !important;
     color: #333;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #app {
+    height: inherit;
   }
 
   #content {
     padding-top: 0.5rem;
+    height: calc(100% - 100px);
   }
 </style>

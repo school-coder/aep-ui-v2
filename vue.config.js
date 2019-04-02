@@ -5,12 +5,12 @@ module.exports = {
   devServer: {
     proxy: {
       '/auth': {
-        target: 'http://localhost:8081',
+        target: 'http://SAG-B83RXF2.eur.ad.sag:8081',
         ws: true,
         changeOrigin: true
       },
       '/api': {
-        target: 'http://localhost:8081',
+        target: 'http://SAG-B83RXF2.eur.ad.sag:8081',
         ws: true,
         changeOrigin: true
       }
