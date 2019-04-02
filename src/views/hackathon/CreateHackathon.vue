@@ -12,11 +12,11 @@
         <form class="col-lg-6">
             <div class="form-group">
                 <label for="id-hk-name">Name</label>
-                <input type="email" class="form-control" id="id-hk-name" aria-describedby="hackathon_name" >
+                <input type="text" v-model="hackathon.name" class="form-control" id="id-hk-name" aria-describedby="hackathon_name" >
             </div>
             <div class="form-group">
                 <label for="id-hk-description">Description</label>
-                <textarea name="description" id="id-hk-description" cols="30" rows="10" class="form-control"></textarea>
+                <textarea v-model="hackathon.description" name="description" id="id-hk-description" cols="30" rows="10" class="form-control"></textarea>
             </div>
         </form>
     </section>
@@ -24,13 +24,26 @@
 
 <script>
 import TitleBar from '@/components/core/CTitleBar.vue'
+import HackathonService from '@/services/hackathon/HackathonService.js'
+
 export default {
   components: {
     TitleBar
   },
+  methods: {
+    save () {
+      HackathonService.create(this.hackathon, () => {
+        window.alert('callback invoked')
+      })
+    }
+  },
   data () {
     return {
-      title: 'Create Hackathon'
+      title: 'Create Hackathon',
+      hackathon: {
+        name: '',
+        description: ''
+      }
     }
   }
 }
