@@ -1,57 +1,74 @@
 <template>
-    <section >
-        <h2>Login</h2>
-        <form>
-            <div class="form-group">
-                <label for="id-lg-email">Email address</label>
-                <input type="email" class="form-control" v-model="email" id="id-lg-email" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label for="id-lg-password">Password</label>
-                <input type="password" v-model="password" class="form-control" id="id-lg-password" placeholder="Password">
-            </div>
+  <section>
+    <h2>Login</h2>
+    <form>
+      <div class="form-group">
+        <label for="id-lg-email">Email address</label>
+        <input type="text" class="form-control" v-model="email" id="id-lg-email" aria-describedby="emailHelp"
+               placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="id-lg-password">Password</label>
+        <input type="password" v-model="password" class="form-control" id="id-lg-password" placeholder="Password">
+      </div>
 
-            <div class="form-group">
-                <a href="#">Forgot Password</a>
-            </div>
+      <div class="form-group">
+        <a href="#">Forgot Password</a>
+      </div>
 
-            <button type="submit" id="id-login-submit" class="btn btn-primary" @click.prevent="login">Submit</button>
-        </form>
-    </section>
+      <button type="submit" id="id-login-submit" class="btn btn-primary" @click.prevent="doLogin">Submit</button>
+    </form>
+  </section>
 </template>
 
 <script>
+import loginService from '@/services/auth_service/LoginService'
+import accountService from '@/services/AccountService'
 
 export default {
   data () {
     return {
-      email: 'test',
+      email: '',
       password: ''
     }
   },
   methods: {
-    login () {
-      this.$store.dispatch('user/login', {
+    doLogin () {
+      const data = {
         username: this.email,
-        idToken: this.password
-      })
+        password: this.password
+      }
+      loginService.logIn(data, this.getCurrentUser)
+    },
+    getCurrentUser () {
+      accountService.getAccount(this.saveUserToStore)
+    },
+    navigateToHome: function () {
+      this.$router.push('/')
+    },
+    saveUserToStore (response) {
+      const userData = response.data
+      console.log(userData)
+      this.$store.dispatch('user/login', userData).then(
+        this.navigateToHome()
+      )
     }
   }
 }
 </script>
 
 <style scoped>
-    section {
-        width: 500px;
-        margin: auto;
-        border: 1px solid #CCC;
-        padding: 20px;
-        position: absolute;
-        top: calc(50% - 200px );
-        left: calc(50% - 250px );
-    }
+  section {
+    width: 500px;
+    margin: auto;
+    border: 1px solid #CCC;
+    padding: 20px;
+    position: absolute;
+    top: calc(50% - 200px);
+    left: calc(50% - 250px);
+  }
 
-    #id-login-submit {
-        text-align: right;
-    }
+  #id-login-submit {
+    text-align: right;
+  }
 </style>
