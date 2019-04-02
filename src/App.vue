@@ -28,6 +28,6 @@ export default {
   }
 
   #content {
-    padding-top: 20px;
+    padding-top: 0.5rem;
   }
 </style>
