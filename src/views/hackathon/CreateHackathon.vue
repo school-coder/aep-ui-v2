@@ -8,7 +8,7 @@
                       Save
               </button>
 
-              <button class="btn btn-secondary" @click="cancel">
+              <button class="btn btn-outline-secondary" @click="cancel">
                 <font-awesome-icon icon="times-circle">  </font-awesome-icon>
                 Cancel
               </button>

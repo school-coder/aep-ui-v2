@@ -8,22 +8,57 @@
                 </button>
             </template>
         </title-bar>
-        <div class="container-fluid">
-            <div class="card" style="width: 18rem">
-                <img src="images/hack1.png" class="card-img-top" alt="hack1.png" >
-                <div class="card-body">
-                    <h5 class="card-title">Hack Fest 2019</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="card-link">View</a>
-                    <a href="#" class="card-link">Register</a>
-                </div>
+        <div class="container-fluid" id="id-hackathon-list-container">
+          
+          <div class="row">
+            <div class="col-md-1">
+              <img src="images/hack1.png" alt="hack png" width="64px" height="64px">
             </div>
+            <div class="col-md-1 mg-tp-20">
+              <a href="#">Hack Fest 2019</a>
+            </div>
+            <div class="col-md-6">
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-1 mg-tp-20">
+              <a href="#">Register</a>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-1">
+              <img src="images/hack1.png" alt="hack png" width="64px" height="64px">
+            </div>
+            <div class="col-md-1 mg-tp-20">
+              <a href="#">Hack Fest 2019</a>
+            </div>
+            <div class="col-md-6">
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-1 mg-tp-20">
+              <a href="#">Register</a>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-1">
+              <img src="images/hack1.png" alt="hack png" width="64px" height="64px">
+            </div>
+            <div class="col-md-1 mg-tp-20">
+              <a href="#">Hack Fest 2019</a>
+            </div>
+            <div class="col-md-6">
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-1 mg-tp-20">
+              <a href="#">Register</a>
+            </div>
+          </div>
+          
         </div>
     </section>
 </template>
-
 <script>
 import TitleBar from '@/components/core/CTitleBar.vue'
 export default {
@@ -42,3 +77,25 @@ export default {
   }
 }
 </script>
+<style scoped>
+.row {
+  border-bottom: 1px solid #CCC;
+  padding: 10px;
+}
+.row > div:last-child {
+  text-align: right;
+}
+.row:nth-child(2n+1) {
+  background-color: #FAFAFA;
+}
+img {
+  border-radius: 50%;
+  border: 1px solid #DDD;
+}
+#id-hackathon-list-container {
+  margin-top: -20px;
+}
+.mg-tp-20 {
+  margin-top: 20px;
+}
+</style>
