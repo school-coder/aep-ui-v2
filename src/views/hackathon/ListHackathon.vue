@@ -8,6 +8,7 @@
                 </button>
             </template>
         </title-bar>
+
         <div class="container-fluid" id="id-hackathon-list-container">
           <div class="row" v-for="(hackathon, index) in hackathons" :key="index">
             <div class="col-md-1">
@@ -35,6 +36,9 @@ export default {
     TitleBar
   },
   methods: {
+    loadHackathonData (response) {
+      this.hackathons = response.data
+    },
     create () {
       this.$router.push('/hackathon/create')
     }
@@ -58,12 +62,13 @@ export default {
           'name': 'Hack Fest 2019',
           'description': 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum'
         }
-      ]
+      ],
+      result: []
     }
   },
   mounted: function () {
     HackathonService.list((response) => {
-      this.hackathons = response
+      this.loadHackathonData(response)
     })
   }
 }

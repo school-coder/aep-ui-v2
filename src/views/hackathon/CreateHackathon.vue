@@ -69,7 +69,7 @@ export default {
       selectedTab: 'BasicInfo',
       hackathon: {
         name: 'test name',
-        description: 'test description'
+        description: 'test n'
       }
     }
   }

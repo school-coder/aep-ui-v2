@@ -4,9 +4,13 @@ import Router from 'vue-router'
 import Home from './views/home/Home.vue'
 import Login from './views/login/Login.vue'
 import Register from './views/register/Register.vue'
+
 import HackathonList from './views/hackathon/ListHackathon.vue'
 import HackathonCreate from './views/hackathon/CreateHackathon.vue'
+import HackathonView from './views/hackathon/ViewHackathon.vue'
+
 import Hackathon from './views/hackathon/Hackathon.vue'
+
 Vue.use(Router)
 
 /* const HackathonList = resolve => {
@@ -54,6 +58,11 @@ export default new Router({
           path: 'create',
           name: 'hackathonCreate',
           component: HackathonCreate
+        },
+        {
+          path: 'detail/:id',
+          name: 'hackathonView',
+          component: HackathonView
         }
       ]
     }
