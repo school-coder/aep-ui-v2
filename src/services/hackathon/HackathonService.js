@@ -6,10 +6,13 @@ const create = (hackathon, callback) => {
     .catch(error => console.log(error))
 }
 
-const list = (hackathon, callback) => {
-  axios.get('/api/hackathons', hackathon)
+const list = (callback) => {
+  axios.get('/api/hackathons')
     .then(callback)
     .catch(error => console.log(error))
+    .then(() => {
+      console.log('done invocation')
+    })
 }
 
 export default {

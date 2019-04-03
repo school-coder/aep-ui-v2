@@ -9,58 +9,27 @@
             </template>
         </title-bar>
         <div class="container-fluid" id="id-hackathon-list-container">
-          
-          <div class="row">
+          <div class="row" v-for="(hackathon, index) in hackathons" :key="index">
             <div class="col-md-1">
-              <img src="images/hack1.png" alt="hack png" width="64px" height="64px">
+              <img :src="hackathon.banner" alt="hack png" width="64px" height="64px">
             </div>
             <div class="col-md-1 mg-tp-20">
-              <a href="#">Hack Fest 2019</a>
+              <a href="#">{{ hackathon.name }}</a>
             </div>
             <div class="col-md-6">
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+              {{ hackathon.description }}
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-1 mg-tp-20">
               <a href="#">Register</a>
             </div>
           </div>
-           <div class="row">
-            <div class="col-md-1">
-              <img src="images/hack1.png" alt="hack png" width="64px" height="64px">
-            </div>
-            <div class="col-md-1 mg-tp-20">
-              <a href="#">Hack Fest 2019</a>
-            </div>
-            <div class="col-md-6">
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-            </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-1 mg-tp-20">
-              <a href="#">Register</a>
-            </div>
-          </div>
-           <div class="row">
-            <div class="col-md-1">
-              <img src="images/hack1.png" alt="hack png" width="64px" height="64px">
-            </div>
-            <div class="col-md-1 mg-tp-20">
-              <a href="#">Hack Fest 2019</a>
-            </div>
-            <div class="col-md-6">
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-            </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-1 mg-tp-20">
-              <a href="#">Register</a>
-            </div>
-          </div>
-          
         </div>
     </section>
 </template>
 <script>
 import TitleBar from '@/components/core/CTitleBar.vue'
+import HackathonService from '@/services/hackathon/HackathonService.js'
 export default {
   components: {
     TitleBar
@@ -72,8 +41,30 @@ export default {
   },
   data () {
     return {
-      title: 'API Hackathons'
+      title: 'API Hackathons',
+      hackathons: [
+        {
+          'banner': 'images/hack1.png',
+          'name': 'Hack Fest 2019',
+          'description': 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum'
+        },
+        {
+          'banner': 'images/hack1.png',
+          'name': 'Hack Fest 2019',
+          'description': 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum'
+        },
+        {
+          'banner': 'images/hack1.png',
+          'name': 'Hack Fest 2019',
+          'description': 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum'
+        }
+      ]
     }
+  },
+  mounted: function () {
+    HackathonService.list((response) => {
+      this.hackathons = response
+    })
   }
 }
 </script>
