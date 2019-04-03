@@ -31,7 +31,7 @@
         </div>
         <div class="col-lg-10">
           <keep-alive>
-            <component :is="selectedTab" :hackathon="hackathon"></component>
+            <component :is="selectedTab" :hackathon="hackathon" @next="selectedTab = $event"></component>
           </keep-alive>
         </div>
       </div>
@@ -65,8 +65,8 @@ export default {
       title: 'Create Hackathon',
       selectedTab: 'BasicInfo',
       hackathon: {
-        name: '',
-        description: ''
+        name: 'test name',
+        description: 'test description'
       }
     }
   }

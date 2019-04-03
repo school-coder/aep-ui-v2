@@ -1,10 +1,30 @@
 <template>
-    <section>from dates section</section>
+    <section>
+      <div class="row container-fluid" id="create-basic-info-wrapper">
+          <form class="col-lg-6">
+              <div class="form-group">
+                  <label for="id-hk-startdate">Registration start date</label>
+                  <datepicker input-class="form-control"></datepicker>
+              </div>
+              <div class="form-group">
+                  <label for="id-hk-endate">Registration end date</label>
+                  <datepicker input-class="form-control"></datepicker>
+              </div>
+              <div class="form-group">
+                  <label for="id-hk-startdate">Winning announcement date</label>
+                  <datepicker input-class="form-control"></datepicker>
+              </div>
+          </form>
+      </div>
+    </section>
 </template>
 
 <script>
+import Datepicker from 'vuejs-datepicker'
 export default {
-
+  components: {
+    Datepicker
+  }
 }
 </script>
 
