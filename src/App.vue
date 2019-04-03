@@ -24,9 +24,11 @@ export default {
 <style lang="scss">
   body {
     font-family: 'Roboto', sans-serif !important;
-    color: #333;
     height: 100%;
-    overflow: hidden;
+  }
+
+  div {
+    color : #333;
   }
 
   #app {

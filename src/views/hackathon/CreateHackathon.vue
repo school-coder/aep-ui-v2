@@ -1,44 +1,40 @@
 <template>
     <section>
+
       <title-bar :title="title">
           <template v-slot:actions>
-              <button class="btn btn-light"  @click="save">
+              <button class="btn btn-primary"  @click="save">
                       <font-awesome-icon icon="save"></font-awesome-icon>
                       Save
+              </button>
+
+              <button class="btn btn-secondary">
+                <font-awesome-icon icon="times-circle">  </font-awesome-icon>
+                Cancel
               </button>
           </template>
       </title-bar>
 
-      <component :is="selectedTab" :hack_data="hackathon">
-      </component>
-      <!-- <div class="row container-fluid" id="create-form-wrapper">
-          <form class="col-lg-6">
-              <div class="form-group">
-                  <label for="id-hk-name">Name</label>
-                  <input type="text" v-model="hackathon.name" class="form-control" id="id-hk-name" aria-describedby="hackathon_name" >
-              </div>
-                <div class="form-group">
-                  <label for="id-hk-name">Banner</label>
-                  <input type="url" v-model="hackathon.banner" class="form-control" id="id-hk-banner" aria-describedby="hackathon_banner" >
-              </div>
-              <div class="form-group">
-                  <label for="id-hk-description">Description</label>
-                  <textarea @focus="show_preview=true" @blur="show_preview=false" v-model="hackathon.description" name="description" id="id-hk-description" cols="30" rows="10" class="form-control"></textarea>
-              </div>
-              <div class="form-group">
-                  <label for="id-hk-startdate">Registration start date</label>
-                  <datepicker input-class="form-control"></datepicker>
-              </div>
-
-              <div class="form-group">
-                  <label for="id-hk-endate">Registration end date</label>
-                  <datepicker input-class="form-control"></datepicker>
-              </div>
-          </form>
-          <div v-if="show_preview" class="col-lg-6 preview">
-              <div v-html="marked_value"></div>
-          </div>
-      </div> -->
+      <div class="row container-fluid">
+        <div class="col-lg-2">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href @click.prevent="selectedTab='BasicInfo'" :class="{ active: selectedTab == 'BasicInfo'}"> Basic information </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href @click.prevent="selectedTab='Criteria'" :class="{ active: selectedTab == 'Criteria'}"> Criteria </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href @click.prevent="selectedTab='Dates'" :class="{ active: selectedTab == 'Dates'}"> Sceduled Dates </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-10">
+          <keep-alive>
+            <component :is="selectedTab" :hackathon="hackathon"></component>
+          </keep-alive>
+        </div>
+      </div>
 
     </section>
 </template>
@@ -49,22 +45,13 @@ import BasicInfo from '@/components/hackathon/create/CHackCreateBasicInfo.vue'
 import Criteria from '@/components/hackathon/create/CHackCreateCriteria.vue'
 import Dates from '@/components/hackathon/create/CHackCreateDates.vue'
 import HackathonService from '@/services/hackathon/HackathonService.js'
-import Datepicker from 'vuejs-datepicker'
-
-var marker = require('marked')
 
 export default {
   components: {
     TitleBar,
-    Datepicker,
     BasicInfo,
     Dates,
     Criteria
-  },
-  computed: {
-    marked_value () {
-      return marker(this.hackathon.description)
-    }
   },
   methods: {
     save () {
@@ -76,10 +63,9 @@ export default {
   data () {
     return {
       title: 'Create Hackathon',
-      show_preview: false,
       selectedTab: 'BasicInfo',
       hackathon: {
-        name: 'test',
+        name: '',
         description: ''
       }
     }
@@ -92,8 +78,11 @@ export default {
     height: calc( 100% - 100px );
 }
 
-.preview {
-    background-color: #fafafa;
-    border-left: 1px solid #DDD
+a.nav-link.active {
+  color: #333;
+}
+
+button + button {
+  margin-left: 10px;
 }
 </style>
