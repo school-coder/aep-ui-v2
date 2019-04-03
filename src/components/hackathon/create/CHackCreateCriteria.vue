@@ -49,7 +49,10 @@ export default {
   },
   computed: {
     marked_value () {
-      return marker(this.marked_down_input)
+      if (this.marked_down_input !== null && this.marked_down_input !== undefined) {
+        return marker(this.marked_down_input)
+      }
+      return ''
     }
   }
 }

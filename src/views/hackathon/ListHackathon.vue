@@ -2,7 +2,7 @@
     <section>
         <title-bar :title="title">
             <template v-slot:actions>
-                <button class="btn btn-light"  @click="create">
+                <button class="btn btn-primary"  @click="create">
                     <font-awesome-icon icon="plus-circle"></font-awesome-icon>
                     Create
                 </button>

@@ -8,7 +8,7 @@
                       Save
               </button>
 
-              <button class="btn btn-secondary">
+              <button class="btn btn-secondary" @click="cancel">
                 <font-awesome-icon icon="times-circle">  </font-awesome-icon>
                 Cancel
               </button>
@@ -58,6 +58,9 @@ export default {
       HackathonService.create(this.hackathon, () => {
         window.alert('callback invoked')
       })
+    },
+    cancel () {
+      this.$router.push({ name: 'hackathonlist' })
     }
   },
   data () {

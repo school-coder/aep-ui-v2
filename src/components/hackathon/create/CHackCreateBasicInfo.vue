@@ -10,6 +10,10 @@
                   <input type="text" v-model="hackathon.name" class="form-control" id="id-hk-name" aria-describedby="hackathon_name" >
               </div>
               <div class="form-group">
+                  <label for="id-hk-name">Summary</label>
+                  <input type="text" v-model="hackathon.summary" class="form-control" id="id-hk-summary" aria-describedby="hackathon_summary" >
+              </div>
+              <div class="form-group">
                   <label for="id-hk-description">Description</label>
                   <textarea @focus="show_preview=true" @blur="show_preview=false" v-model="hackathon.description" name="description" id="id-hk-description" cols="30" rows="10" class="form-control"></textarea>
               </div>
